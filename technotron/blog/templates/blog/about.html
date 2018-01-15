@@ -1,0 +1,16 @@
+{% extends 'blog/base.html'%}
+{% load staticfiles %}
+{% block content %}
+<h1>About the Blog</h1>
+<p>This blog is intended to prvide information about latest information about
+technology, gadgets and software. </p>
+<p>Please feel free to contribute with related content.</p>
+<p>Thanks for checking it out.</p>
+<img src="{% static 'Akshay_dhotre.jpeg' %}" alt="Akshay Dhotre" width="20%" class="rounded-circle">
+<h2>Author: Akshay Dhotre</h2>
+<h3>Engineer and Technology Enthusiast.</h3>
+<span>
+    <a class="nav-link techfont" href="https://www.linkedin.com/in/akshay-dhotre-may91/"><img src="{% static 'LinkdIn.svg' %}" width="5%" alt="linkdin Logo"> LinkdIn</a>
+    <a class="nav-link techfont" href="https://github.com/a2dhotre"><img src="{% static 'github.svg' %}" width="5%" alt="GitHub Logo"> GitHub</a>
+</span>
+{% endblock %}

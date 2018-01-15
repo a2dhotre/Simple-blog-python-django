@@ -1,0 +1,42 @@
+.techfont{
+  font-family: 'ABeeZee', sans-serif;
+  font-size: 1em;
+  color: black;
+}
+
+.bigbrand{
+    font-family: 'Passion One', cursive;
+    font-size: 2em;
+}
+
+.centerstage{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.postdate{
+  text-align: center;
+}
+
+.posttitle{
+  font-family: 'ABeeZee', sans-serif;
+  font-size: 2em;
+  text-align: center;
+  color: black;
+}
+
+.postcontent{
+  font-family: 'News Cycle', sans-serif;
+  font-size: 1em;
+  color: black;
+}
+
+.btn-comment{
+  position: absolute;
+  right: 0px;
+}
+
+.post{
+  font-family: 'ABeeZee', sans-serif;
+  color: Black;
+}
