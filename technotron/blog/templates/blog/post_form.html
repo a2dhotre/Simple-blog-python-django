@@ -1,15 +1,18 @@
 {% extends 'blog/base.html'%}
 {% block content %}
+<div class="card">
+    <div class="card-header posttitle"><h3>New Post</h3></div>
+      <div class="card-body">
+        <br>
+          <form class="post-form" method="post">
+            {% csrf_token %}
+            {{form.as_p}}
+            <button class="save btn btn-dark btn-sm" type="submit">Save</button>
+          </form>
 
-  <h1>New Post</h1>
-  <form class="post-form" method="post">
-    {% csrf_token %}
-    {{form.as_p}}
-    <button class="save btn btn-default" type="submit">Save</button>
-  </form>
-
-  <script>
-    var editor = new MediumEditor('.editable');
-  </script>
-
+          <script>
+            var editor = new MediumEditor('.editable');
+          </script>
+      </div>
+</div>          
 {% endblock %}

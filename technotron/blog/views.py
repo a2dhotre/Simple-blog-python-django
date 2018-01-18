@@ -47,6 +47,7 @@ class PostDeleteView(LoginRequiredMixin,DeleteView):
 
 # Draft List view
 class DraftListView(LoginRequiredMixin,ListView):
+    template_name = 'post_draft_list.html'
     login_url = '/login/'
     redirect_field_name = 'blog/post_draft_list.html'
     model = Post

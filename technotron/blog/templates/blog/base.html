@@ -23,21 +23,15 @@
 
     <!-- navbar -->
     <!-- As a heading -->
-      <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+      <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #6AD5F3;">
         <div class="container">
-          <a class="navbar-brand mb-0 h1 bigbrand" href="{% url 'post_list' %}">TECHNOTRON</a>
+          <a class="navbar-brand mb-0 h1 bigbrand" href="{% url 'about' %}">TECHNOTRON</a>
           <ul class="navbar-nav mr-auto">
-            <li class="nav-item"><a class="nav-link techfont" href="{% url 'about' %}">About</a> </li>
-            <li class="nav-item"><a class="nav-link techfont" href="https://github.com/a2dhotre">GitHub</a></li>
-            <li class="nav-item"><a class="nav-link techfont" href="https://www.linkedin.com/in/akshay-dhotre-may91/">LinkdIn</a></li>
-          </ul>
-
-          <ul class="navbar-nav mr-auto">
-            {% if user.is_authenticated %}
               <li class="nav-item">
-                  <a class="navbar-text navbar-right techfont">Welcome: {{user.username}}</a>
+                  <a class="nav-link techfont" href="{% url 'post_list' %}">Posts</a>
               </li>
-              
+          {% if user.is_authenticated %}  
+            
               <li class="nav-item">
                   <a class="nav-link techfont" href="{% url 'post_new' %}">New Post</a>
               </li>
@@ -45,30 +39,44 @@
               <li class="nav-item">
                   <a class="nav-link techfont" href="{% url 'post_draft_list' %}">Drafts</a>
               </li>
+          </ul>
+
+          <ul class="navbar-nav navbar-right">
+              <li class="nav-item">
+                  <a class="navbar-text techfont">Welcome: {{user.username}}</a>
+              </li>
 
               <li class="nav-item">
                   <a class="nav-link techfont" href="{% url 'logout' %}">Logout</a>
-              </li>
-
-            {% else %}
-              <li class="nav-item"> <a class="nav navbar-right techfont" href="{% url 'login' %}"> <span><img src="{% static 'login.svg' %}" alt="img" width='10%'> Login</span></a></li>
-            {% endif %}
-
+              </li>    
           </ul>
+
+          {% else %}
+          <ul class="navbar-nav navbar-right">
+            <li class="nav-item"> <a class="nav-link techfont" href="{% url 'login' %}"> <span><img src="{% static 'login.svg' %}" alt="img" width='20px'> Login</span></a></li>         
+          </ul>    
+          {% endif %}
+
         </div>
       </nav>
-
-    <!-- content block -->
-    <div class="content container">
+    <br>
+    <div class="container">
       <div class="row">
-        <div class="col-md-8">
-          <div class="blog_posts">
+        <div class="col-sm-8">
             {% block content %}
             {% endblock %}
-          </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="list-group">
+                <a href="{% url 'post_list' %}" class="list-group-item">
+                  <h3>Posts</h3>
+                </a>
+                {% for post in post_list %}
+                <a class="list-group-item list-group-item-action" href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a>
+                {% endfor %}
+            </div>
         </div>
       </div>
-    </div>
-
+    </div>    
   </body>
 </html>
